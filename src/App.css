@@ -1,38 +1,370 @@
 .App {
+  text-align: left;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: #3aa4fb;
+  padding: 5%;
+}
+
+.sign-container {
+  background-color: white;
+  border-radius: 5%;
+  border: solid 1px black;
+  width: 30vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 5%;
+}
+
+.sign-input {
+  width: 100%;
+  height: 3vw;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: medium;
+}
+
+.sign-button {
+  width: 100%;
+  height: 3vw;
+  display: inline-block;
+  background-color: palevioletred;
+  border: 0;
+  color: white;
+  margin-top: 8%;
+  font-size: large;
+  border-radius: 10px;
+}
+
+.sign-container h1 {
+  margin: 0;
+}
+
+.sign-container h2 {
+  margin-top: 8%;
+  margin-bottom: 0;
+}
+
+.sign-p {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.status-p {
+  text-align: center;
+  color: red;
+  text-decoration: underline;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.chat-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sidebar-container {
+  flex-basis: 25%;
+  background-color: white;
+  text-align: left;
+  /*padding: 1%;*/
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.right-side-container {
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth {
+  width: 100%;
+  height: 4vw;
+  background-color: rgb(238, 230, 230);
+  line-height: 4vw;
+  padding-left: 2%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
   align-items: center;
+  gap: 1vw;
+  border-right: 2px solid rgb(255, 255, 255);
+  padding: 1%;
+}
+
+.auth > p {
+  flex-grow: 1;
+  height: 100%;
+  margin: 0;
+}
+
+.auth > button {
+  border-radius: 8px;
+  background-color: rgb(250, 228, 188);
+  border: solid 1px black;
+  height: 50%;
+}
+
+.sidebar-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 3vw;
+  border: none;
+  background-color: rgb(211, 198, 198);
+  border-radius: 10px;
+}
+
+.sidebar-input-div {
+  padding: 3%;
+}
+
+.sidebar-selector {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 3%;
+  gap: 2%;
+  background-color: rgb(238, 230, 230);
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-selector > div {
+  background-color: rgb(211, 198, 198);
+  flex-basis: 25%;
+  text-align: center;
+  height: 3vh;
+  line-height: 3vh;
+  border-radius: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.selected {
+  background-color: rgb(250, 228, 188) !important;
+  border: 1px black solid;
+}
+
+.sidebar-selector > div:hover {
+  background-color: rgb(250, 228, 188);
+}
+
+.sidebar-container ul {
+  list-style-type: none;
+  padding: 0;
+  /*overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;*/
+  overflow: hidden;
+  overflow-y: auto;
+  flex-grow: 1;
+  margin: 0;
+}
+
+.sidebar-container li {
+  border-bottom: 1px solid rgb(248, 208, 208);
+  width: 100%;
+  height: 4vw;
+  padding-left: 2%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  align-content: center;
+}
+.sidebar-container li p {
+  margin: 0;
+  display: inline;
+}
+
+.last-msg {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.timestamp {
+  color: gray;
+  font-size: 0.8rem;
+  padding-right: 5px;
+}
+
+.filter-msg {
+  text-align: center;
+}
+
+.not-target:hover {
+  background-color: rgb(238, 219, 219);
+}
+
+.target {
+  background-color: rgb(183, 177, 177);
+}
+
+.target-right-side {
+  width: 100%;
+  height: 4vw;
+  background-color: rgb(238, 230, 230);
+  line-height: 4vw;
+  padding-left: 2%;
+  box-sizing: border-box;
+}
+
+.messages-container {
+  flex-grow: 1;
+  background-color: aliceblue;
+  height: 20vh;
+  overflow: hidden; /*hidden*/
+  overflow-y: auto; /*scroll*/
+}
+
+.welcome-screen {
+  flex-grow: 1;
+  background-color: aliceblue;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  padding: 0.7vh;
+  margin: 0;
+}
+
+.messages > li {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.Tx {
+  background-color: rgb(183, 246, 183);
+  padding: 0.5vw;
+  align-self: flex-end;
+  margin: 3px;
+  border-radius: 10px;
+  max-width: 25vw;
+}
+
+.Rx {
+  background-color: white;
+  padding: 0.5vw;
+  align-self: flex-start;
+  margin: 3px;
+  border-radius: 10px;
+  max-width: 25vw;
+}
+
+.date {
+  text-align: center;
+  background-color: white;
+  display: block;
+  align-self: center;
+  border-radius: 10px;
+  padding: 0.5vw;
+}
+
+.message-text {
+  margin: 0;
+  display: inline;
+}
+
+.time {
+  color: gray;
+  display: inline;
+  font-size: 0.8rem;
+  padding-left: 5px;
+  float: right;
+  margin-bottom: 0;
+}
+
+.time > p {
+  display: inline;
+}
+
+.seen {
+  color: #3ea8ff;
+}
+
+.empty-chatroom {
+  text-align: center;
+}
+
+.message-input {
+  width: 100%;
+  height: 5vw;
+  background-color: rgb(238, 230, 230);
+  box-sizing: border-box;
+  padding: 1%;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  align-items: center;
+  gap: 1vw;
+}
+
+.message-input > input {
+  box-sizing: border-box;
+  height: 100%;
+  border-radius: 8px;
+  border: 0px;
+  flex-grow: 1;
+}
+
+.message-input > button {
+  border-radius: 8px;
+  background-color: rgb(250, 228, 188);
+  border: solid 1px black;
+  height: 80%;
+}
+
+.signed-out-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signed-out-error > p {
+  background-color: white;
+  text-align: center;
+  padding: 1vw;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+  display: inline;
+}
+
+.email {
+  display: inline;
+  font-weight: normal;
+}
+
+@media (max-width: 1600px) {
+  .sign-input {
+    font-size: small;
   }
-  to {
-    transform: rotate(360deg);
+  .sign-button {
+    font-size: small;
+  }
+  .email {
+    display: none !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .sign-input {
+    font-size: small;
+  }
+  .sign-button {
+    font-size: small;
   }
 }
